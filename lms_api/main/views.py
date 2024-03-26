@@ -6,8 +6,12 @@ from .models import *
 from rest_framework.response import Response
 # Create your views here.
 
-class TeacherList(APIView):
-    def get(self, request):
-        teacher = Teacher.objects.all()
-        serializer = TeacherSerializers(teacher, many=True)
-        return Response(serializer.data)
+class TeacherList(generics.ListCreateAPIView):
+    queryset = Teacher.objects.all()
+    serializer_class = TeacherSerializers
+
+class TeacherDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Teacher.objects.all()
+    serializer_class = TeacherSerializers
+    
+    
