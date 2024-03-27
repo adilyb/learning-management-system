@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 
-import Home from './Home.js';                                           
+import Main from './Main.js';                                           
 
 
 function App() {
@@ -23,8 +23,8 @@ function App() {
     //   </header>
     // </div>
 
-    <div ClassName="App">
-      <Home />
+    <div className="App">
+      <Main />
     </div>
 
   );
