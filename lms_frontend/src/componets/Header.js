@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function Header() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -8,9 +9,11 @@ function Header() {
     </button>
     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div className="navbar-nav ms-auto">
-        <a className="nav-link active" aria-current="page" href="#">Home</a>
+        <Link className="nav-link active" aria-current="page" to="/">Home</Link>
         <a className="nav-link" href="#">Courses</a>
         <a className="nav-link" href="#">Teachers</a>
+        <Link className="nav-link" to="/about">About</Link>
+
       </div>
     </div>
   </div>

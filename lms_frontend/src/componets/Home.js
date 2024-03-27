@@ -3,6 +3,7 @@ function Home() {
 
     <div className="container mt-4">
       {/* Latest Courses */}
+      
       <h3 className="pb-1 mb-4">Latest Courses <a href="#" className="float-end">See All</a></h3>
 
       <div className="row">
