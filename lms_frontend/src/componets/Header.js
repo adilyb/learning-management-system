@@ -23,7 +23,7 @@ function Header() {
                 <li><Link className="dropdown-item" to="/register">Register</Link></li>
                 <li><hr className="dropdown-divider" /></li>
                 <li><Link className="dropdown-item" to="/dashboard">Dashboard</Link></li>
-                <li><Link className="dropdown-item" to="/register">Logout</Link></li>
+                <li><Link className="dropdown-item" to="/login">Logout</Link></li>
 
 
               </ul>

@@ -6,8 +6,9 @@ import CourseDetail from './CourseDetail.js';
 import Login from './Login.js'
 import Register from './Register.js'
 import Dashboard from './Dashboard.js'
-
 import {Routes as Switch, Route} from 'react-router-dom';
+import MyCourse from './MyCourse.js';
+import MyFavoriteCourse from './MyFavoriteCourse.js';
 
 function Main() {
   return (
@@ -20,6 +21,8 @@ function Main() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/mycourse" element={<MyCourse />} />
+        <Route path="/my-favorite-course" element={<MyFavoriteCourse />} />
 
 
       </Switch>
