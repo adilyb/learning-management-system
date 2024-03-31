@@ -6,6 +6,9 @@ import Footer from './Footer.js';
 import About from './About.js';
 import CourseDetail from './CourseDetail.js';
 import AllCourse from './AllCourse.js';
+import PopularCourse from './PopularCourse.js';
+import PopularTeacher from './PopularTeacher.js';
+
 
 
 // user routes
@@ -32,10 +35,16 @@ function Main() {
     <div className="App">
       <Header />
       <Switch>
+
+        {/* home page */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:course_id" element={<CourseDetail />} />
         <Route path="/all-course" element={<AllCourse />} />
+        <Route path="/popular-course" element={<PopularCourse />} />
+        <Route path="/popular-teacher" element={<PopularTeacher />} />
+
+
 
 
         {/* User */}
