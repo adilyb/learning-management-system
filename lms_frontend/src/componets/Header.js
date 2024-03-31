@@ -11,7 +11,20 @@ function Header() {
           <div className="navbar-nav ms-auto">
             <Link className="nav-link active" aria-current="page" to="/">Home</Link>
             <a className="nav-link" href="#">Courses</a>
-            <a className="nav-link" href="#">Teachers</a>
+
+            <div class="dropdown">
+              <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Teacher   
+              </a>
+              <ul class="dropdown-menu">
+                <li><Link className="dropdown-item" to="/teacher/login">Login</Link></li>
+                <li><Link className="dropdown-item" to="/teacher/register">Register</Link></li>
+                <li><hr className="dropdown-divider" /></li>
+                <li><Link className="dropdown-item" to="/teacher/dashboard">Dashboard</Link></li>
+                <li><Link className="dropdown-item" to="/teacher/login">Logout</Link></li>
+              </ul>
+            </div>
+            
             <Link className="nav-link" to="/about">About</Link>
             
             <div class="dropdown">
@@ -19,11 +32,11 @@ function Header() {
                 User   
               </a>
               <ul class="dropdown-menu">
-                <li><Link className="dropdown-item" to="/login">Login</Link></li>
-                <li><Link className="dropdown-item" to="/register">Register</Link></li>
+                <li><Link className="dropdown-item" to="/user/login">Login</Link></li>
+                <li><Link className="dropdown-item" to="/user/register">Register</Link></li>
                 <li><hr className="dropdown-divider" /></li>
-                <li><Link className="dropdown-item" to="/dashboard">Dashboard</Link></li>
-                <li><Link className="dropdown-item" to="/login">Logout</Link></li>
+                <li><Link className="dropdown-item" to="/user/dashboard">Dashboard</Link></li>
+                <li><Link className="dropdown-item" to="/user/login">Logout</Link></li>
 
 
               </ul>

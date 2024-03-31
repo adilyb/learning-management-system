@@ -1,11 +1,11 @@
-import SideBar from "./SideBar"
+import TeacherSideBar from "./TeacherSideBar";
 
-function ChangePassword() {
+function TeacherChangePassword() {
     return (
         <div className="container mt-4">
             <div className="row">
                 <aside className="col-md-3">
-                    <SideBar />
+                    <TeacherSideBar />
                 </aside>
                 <section className="col-md-9">
                     <div className="card">
@@ -22,7 +22,6 @@ function ChangePassword() {
                                 <button type="submit" className="btn btn-primary">Reset Password</button>
                             </form>
                         </div>
-
                     </div>
                 </section>
             </div>
@@ -31,6 +30,6 @@ function ChangePassword() {
     );
 }
 
-export default ChangePassword;
+export default TeacherChangePassword;
 
 

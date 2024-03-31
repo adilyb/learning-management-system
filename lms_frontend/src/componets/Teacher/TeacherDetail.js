@@ -1,25 +1,18 @@
-import { useParams } from "react-router-dom";
-
-function CourseDetail() {
-
-    let { course_id } = useParams();
-
+function TeacherDetail(){
     return (
-
         <div className="container mt-3">
             <div className="row">
                 <div className="col-4">
                     <img src="/logo512.png" className="img-thumbnail" alt="..." />
                 </div>
                 <div className="col-8">
-                    <h3>Course Title</h3>
+                    <h3>John Doe</h3>
                     <p>A card is a flexible and extensible content container. It includes options for headers and footers,
                         a wide variety of content, contextual background colors, and powerful display options.
                         If you’re familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails.
                         Similar functionality to those components is available as modifier classes for cards.</p>
-                    <p className="fw-bold">Course By: <a href="/teacher-detail/1">Teacher 1</a></p>
-                    <p className="fw-bold">Duration: 3 Hours 30 Minutes</p>
-                    <p className="fw-bold">Total Enrolled: 456 Students</p>
+                    <p className="fw-bold">Skills: <a href="#">Python, Django, go</a></p>
+                    <p className="fw-bold"><a href="#">Python full stack development</a></p>
                     <p className="fw-bold">Rating: 4.5/5</p>
                 </div>
             </div>
@@ -27,12 +20,15 @@ function CourseDetail() {
             {/* Course Videos */}
             <div className="card mt-4">
                 <div className="card-header">
-                    Course Videos
+                    Course List
                 </div>
                 <ul className="list-group list-group-flush">
-                    <li className="list-group-item">Introduction<i class="bi bi-play-fill float-end"></i></li>
-                    <li className="list-group-item">A second item<i class="bi bi-play-fill float-end"></i></li>
-                    <li className="list-group-item">A third item<i class="bi bi-play-fill float-end"></i></li>
+                    <li className="list-group-item list-group-item-action">Python Full stack developemnt</li>
+                    <li className="list-group-item list-group-item-action">Mern stack</li>
+                    <li className="list-group-item list-group-item-action">AI/ML</li>
+                    <li className="list-group-item list-group-item-action">Web developemnt</li>
+                    <li className="list-group-item list-group-item-action">full stack</li>
+
                 </ul>
             </div>
             {/* Course Videos end*/}
@@ -76,8 +72,7 @@ function CourseDetail() {
                 {/* Related Courses end*/}
             </div>
         </div>
-
     );
 }
 
-export default CourseDetail;
+export default TeacherDetail;

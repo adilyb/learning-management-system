@@ -1,10 +1,10 @@
-function Login() {
+function Register() {
     return (
         <div className="container mt-4">
             <div className="row">
                 <div className="col-6 offset-3">
                     <div className="card">
-                        <h5 className="card-header">User Login</h5>
+                        <h5 className="card-header">User Register</h5>
                         <div className="card-body">
                             <form>
                                 <div className="mb-3">
@@ -42,4 +42,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default Register;

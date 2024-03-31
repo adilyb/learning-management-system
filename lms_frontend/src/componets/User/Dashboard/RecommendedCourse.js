@@ -17,7 +17,7 @@ function RecommendedCourse() {
                                 <div className="row">
                                     <div className="col-md-3">
                                         <div className="card">
-                                            <Link to='/detail/1'> <img src="logo192.png" className="card-img-top" alt="..." /></Link>
+                                            <Link to='/detail/1'> <img src="/logo192.png" className="card-img-top" alt="..." /></Link>
                                             <div className="card-body">
                                                 <h5 className="card-title"> <a href="#">Course title</a></h5>
                                             </div>
@@ -25,7 +25,7 @@ function RecommendedCourse() {
                                     </div>
                                     <div className="col-md-3">
                                         <div className="card">
-                                            <img src="logo192.png" className="card-img-top" alt="..." />
+                                            <img src="/logo192.png" className="card-img-top" alt="..." />
                                             <div className="card-body">
                                                 <h5 className="card-title"> <a href="#">Course title</a></h5>
                                             </div>

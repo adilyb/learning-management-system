@@ -5,14 +5,25 @@ import Header from './Header.js';
 import Footer from './Footer.js';
 import About from './About.js';
 import CourseDetail from './CourseDetail.js';
-import Login from './Login.js'
-import Register from './Register.js'
-import Dashboard from './Dashboard.js'
-import MyCourse from './MyCourse.js';
-import MyFavoriteCourse from './MyFavoriteCourse.js';
-import RecommendedCourse from './RecommendedCourse.js';
-import ProfileSetting from './ProfileSetting.js';
-import ChangePassword from './ChangePassword.js'
+
+// user routes
+import Login from './User/Authentication/Login.js'
+import Register from './User/Authentication/Register.js'
+import Dashboard from './User/Dashboard/Dashboard.js'
+import MyCourse from './User/Dashboard/MyCourse.js';
+import MyFavoriteCourse from './User/Dashboard/MyFavoriteCourse.js';
+import RecommendedCourse from './User/Dashboard/RecommendedCourse.js';
+import ProfileSetting from './User/Dashboard/ProfileSetting.js';
+import ChangePassword from './User/Dashboard/ChangePassword.js'
+
+// teacher routes
+import TeacherLogin from './Teacher/Authentication/TeacherLogin.js'
+import TeacherRegister from './Teacher/Authentication/TeacherRegister.js'
+import TeacherDashboard from './Teacher/Dashboard/TeacherDashboard.js'
+import TeacherMyCourse from './Teacher/Dashboard/TeacherMyCourse.js';
+import TeacherProfileSetting from './Teacher/Dashboard/TeacherProfileSetting.js';
+import TeacherChangePassword from './Teacher/Dashboard/TeacherChangePassword.js'
+import TeacherDetail from './Teacher/TeacherDetail.js'
 
 function Main() {
   return (
@@ -22,14 +33,28 @@ function Main() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:course_id" element={<CourseDetail />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/mycourse" element={<MyCourse />} />
-        <Route path="/my-favorite-course" element={<MyFavoriteCourse />} />
-        <Route path="/recommended-course" element={<RecommendedCourse />} />
-        <Route path="/profile-setting" element={<ProfileSetting />} />
-        <Route path="/change-password" element={<ChangePassword />} />
+
+        {/* User */}
+        <Route path="user/login" element={<Login />} />
+        <Route path="/user/register" element={<Register />} />
+        <Route path="/user/dashboard" element={<Dashboard />} />
+        <Route path="/user/mycourse" element={<MyCourse />} />
+        <Route path="/user/my-favorite-course" element={<MyFavoriteCourse />} />
+        <Route path="/user/recommended-course" element={<RecommendedCourse />} />
+        <Route path="/user/profile-setting" element={<ProfileSetting />} />
+        <Route path="/user/change-password" element={<ChangePassword />} />
+
+        {/* Teacher */}
+        <Route path="/teacher/login" element={<TeacherLogin />} />
+        <Route path="/teacher/register" element={<TeacherRegister />} />
+        <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
+        <Route path="/teacher/mycourse" element={<TeacherMyCourse />} />
+        <Route path="/teacher/profile-setting" element={<TeacherProfileSetting />} />
+        <Route path="/teacher/change-password" element={<TeacherChangePassword />} />
+        <Route path="/teacher-detail/:teacher_id" element={<TeacherDetail />} />
+
+
+
 
       </Switch>
       <Footer />
