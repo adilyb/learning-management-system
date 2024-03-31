@@ -5,6 +5,8 @@ import Header from './Header.js';
 import Footer from './Footer.js';
 import About from './About.js';
 import CourseDetail from './CourseDetail.js';
+import AllCourse from './AllCourse.js';
+
 
 // user routes
 import Login from './User/Authentication/Login.js'
@@ -33,6 +35,8 @@ function Main() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:course_id" element={<CourseDetail />} />
+        <Route path="/all-course" element={<AllCourse />} />
+
 
         {/* User */}
         <Route path="user/login" element={<Login />} />
