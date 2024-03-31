@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-function AllCourse() {
+function PopularCourse() {
     return (
         <div className="container mt-4">
             {/* Latest Courses */}
 
-            <h3 className="pb-1 mb-4">Latest Courses </h3>
+            <h3 className="pb-1 mb-4">Latest Courses</h3>
 
             <div className="row">
                 <div className="col-md-3 mt-4">
@@ -82,4 +82,4 @@ function AllCourse() {
 }
 
 
-export default AllCourse;
+export default PopularCourse;
