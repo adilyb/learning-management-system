@@ -27,7 +27,7 @@ function TeacherDetail(){
                     <li className="list-group-item list-group-item-action">Mern stack</li>
                     <li className="list-group-item list-group-item-action">AI/ML</li>
                     <li className="list-group-item list-group-item-action">Web developemnt</li>
-                    <li className="list-group-item list-group-item-action">full stack</li>
+                    <li className="list-group-item list-group-item-action">Full stack</li>
 
                 </ul>
             </div>
