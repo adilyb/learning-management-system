@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function TeacherDetail(){
     return (
         <div className="container mt-3">
@@ -11,7 +12,7 @@ function TeacherDetail(){
                         a wide variety of content, contextual background colors, and powerful display options.
                         If you’re familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails.
                         Similar functionality to those components is available as modifier classes for cards.</p>
-                    <p className="fw-bold">Skills: <a href="#">Python, Django, go</a></p>
+                    <p className="fw-bold">Skills: <Link to="/category-detail" ><a>Python, Django, go</a></Link></p>
                     <p className="fw-bold"><a href="#">Python full stack development</a></p>
                     <p className="fw-bold">Rating: 4.5/5</p>
                 </div>

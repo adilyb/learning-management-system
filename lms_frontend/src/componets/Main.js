@@ -8,6 +8,7 @@ import CourseDetail from './CourseDetail.js';
 import AllCourse from './AllCourse.js';
 import PopularCourse from './PopularCourse.js';
 import PopularTeacher from './PopularTeacher.js';
+import CategoryDetail from './CategoryDetail.js';
 
 
 
@@ -43,9 +44,7 @@ function Main() {
         <Route path="/all-course" element={<AllCourse />} />
         <Route path="/popular-course" element={<PopularCourse />} />
         <Route path="/popular-teacher" element={<PopularTeacher />} />
-
-
-
+        <Route path="/category-detail" element={<CategoryDetail />} />
 
         {/* User */}
         <Route path="user/login" element={<Login />} />
@@ -65,9 +64,6 @@ function Main() {
         <Route path="/teacher/profile-setting" element={<TeacherProfileSetting />} />
         <Route path="/teacher/change-password" element={<TeacherChangePassword />} />
         <Route path="/teacher-detail/:teacher_id" element={<TeacherDetail />} />
-
-
-
 
       </Switch>
       <Footer />
