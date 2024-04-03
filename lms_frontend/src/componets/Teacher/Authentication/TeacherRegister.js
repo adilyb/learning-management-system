@@ -15,16 +15,13 @@ function TeacherRegister() {
                                     <label for="exampleInputEmail1" className="form-label">Email</label>
                                     <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                                 </div>
-                                <div className="mb-3">
-                                    <label for="exampleInputEmail1" className="form-label">User Name</label>
-                                    <input type="username" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                                </div>
+                                
                                 <div className="mb-3">
                                     <label for="exampleInputPassword1" className="form-label">Password</label>
                                     <input type="password" className="form-control" id="exampleInputPassword1" />
                                 </div>
                                 <div className="mb-3">
-                                    <label for="exampleInputEmail1" className="form-label">Interests</label>
+                                    <label for="exampleInputEmail1" className="form-label">Skills</label>
                                     <textarea type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                                     <div id="emailHelp" className="form-text">Example Php, Python, JavaScript</div>
                                 </div>
