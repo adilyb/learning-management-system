@@ -10,7 +10,7 @@ from rest_framework import permissions
 class TeacherList(generics.ListCreateAPIView):
     queryset = Teacher.objects.all()
     serializer_class = TeacherSerializers
-    permission_classes = [permissions.AllowAny]
+    # permission_classes = [permissions.IsAuthenticated]
     
 class TeacherDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Teacher.objects.all()
