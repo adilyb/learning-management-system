@@ -24,6 +24,8 @@ import ChangePassword from './User/Dashboard/ChangePassword.js'
 
 // teacher routes
 import TeacherLogin from './Teacher/Authentication/TeacherLogin.js'
+import TeacherLogout from './Teacher/Authentication/TeacherLogout.js'
+
 import TeacherRegister from './Teacher/Authentication/TeacherRegister.js'
 import TeacherDashboard from './Teacher/Dashboard/TeacherDashboard.js'
 import TeacherMyCourse from './Teacher/Dashboard/TeacherMyCourse.js';
@@ -58,6 +60,7 @@ function Main() {
 
         {/* Teacher */}
         <Route path="/teacher/login" element={<TeacherLogin />} />
+        <Route path="/teacher/logout" element={<TeacherLogout />} />
         <Route path="/teacher/register" element={<TeacherRegister />} />
         <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
         <Route path="/teacher/mycourse" element={<TeacherMyCourse />} />

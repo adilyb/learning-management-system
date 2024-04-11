@@ -13,15 +13,17 @@ function Header() {
             <a className="nav-link" href="#">Courses</a>
 
             <div class="dropdown">
-              <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle " href="#" role="
+              " data-bs-toggle="dropdown" aria-expanded="false">
                 Teacher   
               </a>
               <ul class="dropdown-menu">
+                {}
                 <li><Link className="dropdown-item" to="/teacher/login">Login</Link></li>
                 <li><Link className="dropdown-item" to="/teacher/register">Register</Link></li>
                 <li><hr className="dropdown-divider" /></li>
                 <li><Link className="dropdown-item" to="/teacher/dashboard">Dashboard</Link></li>
-                <li><Link className="dropdown-item" to="/teacher/login">Logout</Link></li>
+                <li><Link className="dropdown-item" to="/teacher/logout">Logout</Link></li>
               </ul>
             </div>
             

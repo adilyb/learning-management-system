@@ -9,7 +9,7 @@ const baseUrl = "http://127.0.0.1:8000/api/teacher/";
 function TeacherRegister() {
 
     // usestate
-    const [teacherData, setTeacherData] = useState({
+    const [teacherData, setTeacherData] =    useState({
         'full_name': '',
         'email': '',
         'password': '',
