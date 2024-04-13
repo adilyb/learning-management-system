@@ -66,6 +66,11 @@ function TeacherRegister() {
 
     // submit for end
 
+    const teacherLoginStatus = localStorage.getItem('teacherLoginStatus')
+    if (teacherLoginStatus == "true"){
+        window.location.href='/teacher/dashboard'
+    };
+
     useEffect(() => {
         document.title = 'Teacher Register';
     });

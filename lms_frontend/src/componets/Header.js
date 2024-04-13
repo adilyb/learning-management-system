@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 function Header() {
+  const teacherLoginStatus = localStorage.getItem('teacherLoginStatus')
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
@@ -18,18 +20,27 @@ function Header() {
                 Teacher   
               </a>
               <ul class="dropdown-menu">
-                {}
+                { teacherLoginStatus!='true' &&
+                <>
                 <li><Link className="dropdown-item" to="/teacher/login">Login</Link></li>
                 <li><Link className="dropdown-item" to="/teacher/register">Register</Link></li>
-                <li><hr className="dropdown-divider" /></li>
-                <li><Link className="dropdown-item" to="/teacher/dashboard">Dashboard</Link></li>
+                </>
+                }
+               
+                { teacherLoginStatus=='true' &&
+                <>
+                 <li><Link className="dropdown-item" to="/teacher/dashboard">Dashboard</Link></li>
                 <li><Link className="dropdown-item" to="/teacher/logout">Logout</Link></li>
+                </>
+                }
               </ul>
             </div>
             
             <Link className="nav-link" to="/about">About</Link>
             
             <div class="dropdown">
+              {teacherLoginStatus!='true' && 
+              <>
               <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 User   
               </a>
@@ -37,11 +48,11 @@ function Header() {
                 <li><Link className="dropdown-item" to="/user/login">Login</Link></li>
                 <li><Link className="dropdown-item" to="/user/register">Register</Link></li>
                 <li><hr className="dropdown-divider" /></li>
-                <li><Link className="dropdown-item" to="/user/dashboard">Dashboard</Link></li>
-                <li><Link className="dropdown-item" to="/user/login">Logout</Link></li>
-
-
+                <li><Link className="dropdown-item" to="/user/dashboard">Dashboard</Link></li>             
+                <li><Link className="dropdown-item" to="/user/login">Logout</Link></li>              
               </ul>
+              </>
+              }
             </div>
 
           </div>

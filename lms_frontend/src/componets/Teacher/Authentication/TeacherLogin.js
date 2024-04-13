@@ -24,31 +24,31 @@ function TeacherLogin() {
 
     const submitForm = () =>{
 
-        console.log(teacherData)
-        // const teacherFormData = new Form();
-        // teacherFormData.append('username', teacherData.username)
-        // teacherFormData.append('password', teacherData.password)
-        // alert('reached');
-        // try{
-        //     axios.post(baseUrl, submitForm).then((response) => {
-        //         setTeacherData({
-        //             'username':'',
-        //             'password':'',
-        //             'status':'success',
-                    
+        const teacherFormData = new FormData();
+        teacherFormData.append('email', teacherData.email)
+        teacherFormData.append('password', teacherData.password)
+     
+        try{
+            axios.post(baseUrl+'teacher/login', teacherFormData).then((res) => {
+             if(res.data.bool==true){
+                localStorage.setItem('teacherLoginStatus', true)
+                window.location.href='/teacher/dashboard'
 
-        //         })
-        //         console.log(response.data);
-           
-        //     })
-        // }catch(error){
-        //     console.log(error);
-        //     setTeacherData({
-        //         'status':'error'
-        //     });
-        // }
+             }
+
+            })
+        }catch(error){
+            console.log(error);   
+        }
 
     }
+
+    // redirect to the dashboard pages
+    const teacherLoginStatus = localStorage.getItem('teacherLoginStatus')
+    if (teacherLoginStatus == "true"){
+        window.location.href='/teacher/dashboard'
+    };
+
 
     useEffect(()=>{
         document.title = 'Teacher Login'
@@ -64,7 +64,7 @@ function TeacherLogin() {
                             <form>
                                 <div className="mb-3">
                                     <label for="exampleInputEmail1" className="form-label">User Name</label>
-                                    <input type="text" className="form-control" value={teacherData.username} name='username' onChange={HandleChange}/>
+                                    <input type="text" className="form-control" value={teacherData.email} name='email' onChange={HandleChange}/>
                                 </div>
                                 <div className="mb-3">
                                     <label for="exampleInputPassword1" className="form-label">Password</label>
