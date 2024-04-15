@@ -67,7 +67,7 @@ function TeacherRegister() {
     // submit for end
 
     const teacherLoginStatus = localStorage.getItem('teacherLoginStatus')
-    if (teacherLoginStatus == "true"){
+    if (teacherLoginStatus === "true"){
         window.location.href='/teacher/dashboard'
     };
 
@@ -79,8 +79,8 @@ function TeacherRegister() {
         <div className="container mt-4">
             <div className="row">
                 <div className="col-6 offset-3">
-                    {teacherData.status=='success' && <p className='text-success'>Thanks for your registration</p>}
-                    {teacherData.status=='error' && <p className='text-danger'>Something Wrong Happened</p>}
+                    {teacherData.status==='success' && <p className='text-success'>Thanks for your registration</p>}
+                    {teacherData.status==='error' && <p className='text-danger'>Something Wrong Happened</p>}
 
                     <div className="card">
                         <h5 className="card-header">Teacher Register</h5>
