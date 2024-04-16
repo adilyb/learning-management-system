@@ -19,6 +19,10 @@ class CourseCategory(models.Model):
     
     class Meta:
         verbose_name_plural = '2.CourseCategory'
+        
+    def __str__(self):
+        return self.title
+    
 
 class Course(models.Model):
     category = models.ForeignKey(CourseCategory, on_delete=models.CASCADE)

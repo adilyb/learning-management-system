@@ -25,13 +25,13 @@ import ChangePassword from './User/Dashboard/ChangePassword.js'
 // teacher routes
 import TeacherLogin from './Teacher/Authentication/TeacherLogin.js'
 import TeacherLogout from './Teacher/Authentication/TeacherLogout.js'
-
 import TeacherRegister from './Teacher/Authentication/TeacherRegister.js'
 import TeacherDashboard from './Teacher/Dashboard/TeacherDashboard.js'
 import TeacherMyCourse from './Teacher/Dashboard/TeacherMyCourse.js';
 import TeacherProfileSetting from './Teacher/Dashboard/TeacherProfileSetting.js';
 import TeacherChangePassword from './Teacher/Dashboard/TeacherChangePassword.js'
 import TeacherDetail from './Teacher/TeacherDetail.js'
+import AddCourse from './Teacher/Dashboard/AddCourse.js';
 
 function Main() {
   return (
@@ -47,6 +47,7 @@ function Main() {
         <Route path="/popular-course" element={<PopularCourse />} />
         <Route path="/popular-teacher" element={<PopularTeacher />} />
         <Route path="/category-detail" element={<CategoryDetail />} />
+
 
         {/* User */}
         <Route path="user/login" element={<Login />} />
@@ -67,6 +68,7 @@ function Main() {
         <Route path="/teacher/profile-setting" element={<TeacherProfileSetting />} />
         <Route path="/teacher/change-password" element={<TeacherChangePassword />} />
         <Route path="/teacher-detail/:teacher_id" element={<TeacherDetail />} />
+        <Route path="/add-course" element={<AddCourse />} />
 
       </Switch>
       <Footer />
