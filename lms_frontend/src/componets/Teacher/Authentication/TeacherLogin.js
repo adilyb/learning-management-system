@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Form } from "react-router-dom";
 
 const baseUrl = "http://127.0.0.1:8000/api/";
 
@@ -30,7 +29,7 @@ function TeacherLogin() {
      
         try{
             axios.post(baseUrl+'teacher/login', teacherFormData).then((res) => {
-             if(res.data.bool==true){
+             if(res.data.bool===true){
                 localStorage.setItem('teacherLoginStatus', true)
                 window.location.href='/teacher/dashboard'
 
@@ -45,7 +44,7 @@ function TeacherLogin() {
 
     // redirect to the dashboard pages
     const teacherLoginStatus = localStorage.getItem('teacherLoginStatus')
-    if (teacherLoginStatus == "true"){
+    if (teacherLoginStatus === "true"){
         window.location.href='/teacher/dashboard'
     };
 

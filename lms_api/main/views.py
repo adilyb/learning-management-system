@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework import generics
-from .serializers import TeacherSerializers
+from .serializers import TeacherSerializers, CategoryListSerializers, CourseSerializers
 from .models import *
 from rest_framework.response import Response
 from rest_framework import permissions
@@ -29,3 +29,12 @@ def teacher_login(request):
     else :
         return JsonResponse ({'bool':False})
         
+
+class CategoryList(generics.ListCreateAPIView):
+    queryset = CourseCategory.objects.all()
+    serializer_class = CategoryListSerializers
+    
+    
+class CourseList(generics.ListCreateAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializers

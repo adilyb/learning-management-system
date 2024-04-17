@@ -29,6 +29,9 @@ class Course(models.Model):
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     title = models.CharField(max_length=150)
     description = models.TextField()
+    featured_img = models.ImageField(upload_to='course_iamges/', null=True)
+    tech_brief = models.TextField(null=True)
+    
     
     class Meta:
         verbose_name_plural = '3.Course'
