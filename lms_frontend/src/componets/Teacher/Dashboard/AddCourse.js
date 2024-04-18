@@ -9,8 +9,7 @@ function AddCourse(){
 
     const[cats, setCats] = useState([]);
     const[courseData, setCourseData]=useState({
-        'category':'', 
-        'teacher':'', 
+        'category':'',  
         'title':'', 
         'description':'', 
         'f_img':'', 
@@ -34,6 +33,7 @@ function AddCourse(){
             ...courseData,
             [event.target.name]:event.target.value
         })
+        // console.log(event.target.name, event.target.value)
     }
     
     const handlefilechange = (event) => {
@@ -51,6 +51,8 @@ function AddCourse(){
         _formData.append('description', courseData.description);
         _formData.append('featured_img', courseData.f_img, courseData.f_img.name);
         _formData.append('tech_brief', courseData.tech_brief);
+
+
         try{
             axios.post(baseUrl+'/course_add', _formData, {
                 headers: {
@@ -81,27 +83,27 @@ function AddCourse(){
                         <div className="card-body">
                         <form>
                                 <div className="mb-3">
-                                    <label for="categoryLabel" className="form-label">Category</label>
+                                    <label for="category" className="form-label">Category</label>
                                     <select name="category" onChange={handlechange} className="form-control" id="category">
-                                    {cats.map((category, index)=>{return <option key={index}>{category.title}</option>})}
+                                    {cats.map((category, index)=>{return <option key={index} value={category.id}>{category.title}</option>})}
                                     </select>
                                 </div>
                                 <div className="mb-3">
-                                    <label for="titleLabel" className="form-label">Title</label>
+                                    <label for="title" className="form-label">Title</label>
                                     <input name="title" type="text" onChange={handlechange} className="form-control" id="title" />
                                 </div>
                                 <div className="mb-3">
-                                    <label for="descriptionLabel" className="form-label">Description</label>
+                                    <label for="description" className="form-label">Description</label>
                                     <input name="description" type="text" onChange={handlechange} className="form-control" id="description" />
                                 </div>
                                 <div className="mb-3">
-                                    <label for="coursethumbLabel" className="form-label">Course Thumbnail</label>
-                                    <input name="featured_img" type="file" onChange={handlefilechange} className="form-control" id="coursethumb" />
+                                    <label for="f_img" className="form-label">Course Thumbnail</label>
+                                    <input name="f_img" type="file" onChange={handlefilechange} className="form-control" id="f_img" />
                                 </div>
                                
                                 <div className="mb-3">
-                                    <label for="techLabel" className="form-label">Tech</label>
-                                    <textarea name="tech" type="text" onChange={handlechange} className="form-control" id="tech" />
+                                    <label for="tech_brief" className="form-label">Tech</label>
+                                    <textarea name="tech_brief" type="text" onChange={handlechange} className="form-control" id="tech_brief" />
                                     <div id="tech_desc" className="form-text">Example Php, Python, JavaScript</div>
                                 </div>
                                 
