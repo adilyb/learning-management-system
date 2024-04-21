@@ -1,21 +1,21 @@
 import { useState } from "react";
 import TeacherSideBar from "./TeacherSideBar";
 import axios from 'axios'
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const baseUrl = "http://127.0.0.1:8000/api"
 
-function MyCourse() {
-    const [courseData, setCourseData] = useState([]);
-    const teacherId = localStorage.getItem('teacherId')
+function CourseChapter() {
+    const [chapterData, setchapterData] = useState([]);
+    const{course_id} = useParams();
 
 
 
     useState(() => {
         try {
-            axios.get(baseUrl + '/teacher-courses/' + teacherId)
+            axios.get(baseUrl + '/all-chapter/' + course_id)
                 .then((res) => {
-                    setCourseData(res.data);
+                    setchapterData(res.data);
                     // console.log(res.data);
                 })
         } catch (error) {
@@ -31,6 +31,7 @@ function MyCourse() {
                 </aside>
                 <section className="col-md-9">
                     <div className="card">
+                        <h4 className="card-header">ALL CHAPTERS</h4>
                         <div className="card-body">
                             <table class="table">
                                 <thead>
@@ -38,22 +39,22 @@ function MyCourse() {
                                         <th scope="col">ID</th>
                                         <th scope="col">Title</th>
                                         <th scope="col">Description</th>
-                                        <th scope="col">Img</th>
+                                        <th scope="col">Video</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {courseData.map((course, index) =>
+                                    {chapterData.map((chapter, index) =>
                                         <tr>
-                                            <th scope="row">{course.id}</th>
-                                            <td><Link to={'/all-chapter/'+course.id}>{course.title}</Link></td>
-                                            <td>{course.description}</td>
-                                            <td><img src={course.featured_img} alt={course.title} width="80" className="rounded" /></td>
+                                            <th scope="row">{chapter.id}</th>
+                                            <td>{chapter.title}</td>
+                                            <td>{chapter.description}</td>
+                                            <td><img src={chapter.video} alt={chapter.title} width="80" className="rounded" /></td>
 
                                             <td>
                                                 <Link><button type="button" className="btn btn-danger">Delete</button></Link>
                                                 &nbsp;
-                                                <Link to={"/add-chapter/"+ course.id}><button type="button" className="btn btn-primary" >Add Chapter</button></Link>
+                                                <Link to={"/add-chapter/"+ chapter.id}><button type="button" className="btn btn-primary" >Add Chapter</button></Link>
                                             </td>
 
 
@@ -71,4 +72,4 @@ function MyCourse() {
     );
 }
 
-export default MyCourse;
+export default CourseChapter;

@@ -33,6 +33,7 @@ import TeacherChangePassword from './Teacher/Dashboard/TeacherChangePassword.js'
 import TeacherDetail from './Teacher/TeacherDetail.js'
 import AddCourse from './Teacher/Dashboard/AddCourse.js';
 import AddChapter from './Teacher/Dashboard/AddChapter.js';
+import CourseChapter from './Teacher/Dashboard/CourseChapter.js';
 
 function Main() {
   return (
@@ -71,6 +72,8 @@ function Main() {
         <Route path="/teacher-detail/:teacher_id" element={<TeacherDetail />} />
         <Route path="/add-course" element={<AddCourse />} />
         <Route path="/add-chapter/:course_id/" element={<AddChapter />} />
+        <Route path="/all-chapter/:course_id/" element={<CourseChapter />} />
+
 
 
       </Switch>
