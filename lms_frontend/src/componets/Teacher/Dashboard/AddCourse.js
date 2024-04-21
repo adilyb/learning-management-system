@@ -54,7 +54,7 @@ function AddCourse(){
 
 
         try{
-            axios.post(baseUrl+'/course_add', _formData, {
+            axios.post(baseUrl+'/course-add', _formData, {
                 headers: {
                     'content-type': 'multipart/form-data'
                 }

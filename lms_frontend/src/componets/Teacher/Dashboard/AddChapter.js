@@ -9,7 +9,7 @@ function AddChapter(){
 
     
     const[chapterData, setchapterData]=useState({
-        'chapter':'',  
+        'course':'',  
         'title':'', 
         'description':'', 
         'video':'', 
@@ -45,7 +45,7 @@ function AddChapter(){
 
     const formSubmit = () =>{
         const _formData = new FormData();
-        _formData.append('chapter', 1);
+        _formData.append('course', 1);
         _formData.append('title', chapterData.title);
         _formData.append('description', chapterData.description);
         _formData.append('video', chapterData.video, chapterData.video.name);
@@ -53,13 +53,14 @@ function AddChapter(){
 
 
         try{
-            axios.post(baseUrl+'/chapter_add', _formData, {
+            axios.post(baseUrl+'/chapter-add', _formData, {
                 headers: {
                     'content-type': 'multipart/form-data'
                 }
             })
             .then((res) => {
-                console.log(res.data);
+                // console.log(res.data);
+                window.location.href='/add-chapter/1'
             });
         }catch(error){
             console.log(error);
