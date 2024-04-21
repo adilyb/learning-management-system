@@ -7,7 +7,7 @@ const baseUrl = "http://127.0.0.1:8000/api/";
 
 function TeacherLogin() {
 
-
+    const [errorMsg, setErrorMsg] = useState('');
     const [teacherData, setTeacherData] = useState({
         'username':'',
         'password':'',
@@ -34,6 +34,8 @@ function TeacherLogin() {
                 localStorage.setItem('teacherId', res.data.teacher_id)
                 window.location.href='/teacher/dashboard'
 
+             }else{
+                setErrorMsg('Invalid Email or Password!!');
              }
 
             })
@@ -61,6 +63,7 @@ function TeacherLogin() {
                     <div className="card">
                         <h5 className="card-header">Teacher Login</h5>
                         <div className="card-body">
+                            {errorMsg && <p className="text-danger">{errorMsg}</p>}
                             <form>
                                 <div className="mb-3">
                                     <label for="exampleInputEmail1" className="form-label">User Name</label>
