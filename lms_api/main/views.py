@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework import generics
-from .serializers import TeacherSerializers, CategoryListSerializers, CourseSerializers
+from .serializers import *
 from .models import *
 from rest_framework.response import Response
 from rest_framework import permissions
@@ -47,3 +47,7 @@ class TeacherCourseList(generics.ListCreateAPIView):
         teacher_id = self.kwargs['teacher_id']
         teacher = Teacher.objects.get(pk=teacher_id)
         return Course.objects.filter(teacher=teacher)
+    
+class ChapterList(generics.ListCreateAPIView):
+    queryset = Chapter.objects.all()
+    serializer_class = ChapterSerializers

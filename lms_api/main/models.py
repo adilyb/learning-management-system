@@ -12,6 +12,10 @@ class Teacher(models.Model):
     
     class Meta:    
         verbose_name_plural = '1.Teacher'
+    
+    def __str__(self):
+        return self.full_name
+
 
 class CourseCategory(models.Model):
     title = models.CharField(max_length=150)
@@ -29,12 +33,28 @@ class Course(models.Model):
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     title = models.CharField(max_length=150)
     description = models.TextField()
-    featured_img = models.ImageField(upload_to='course_iamges/', null=True)
+    featured_img = models.ImageField(upload_to='course_images/', null=True)
     tech_brief = models.TextField(null=True)
-    
     
     class Meta:
         verbose_name_plural = '3.Course'
+        
+    def __str__(self):
+        return self.title
+    
+
+class Chapter(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    title = models.CharField(max_length=150)
+    description = models.TextField()
+    video = models.FileField(upload_to='chapter_videos/', null=True)
+    remarks = models.TextField(null=True)
+    
+    class Meta:
+        verbose_name_plural = '4.Chapter'
+    
+    def __str__(self):
+        return self.title
     
 
 class Student(models.Model):
@@ -47,5 +67,7 @@ class Student(models.Model):
     interested_categories = models.TextField()
     
     class Meta:
-        verbose_name_plural = '4.Student'
+        verbose_name_plural = '5.Student'
     
+    def __str__(self):
+        return self.full_name

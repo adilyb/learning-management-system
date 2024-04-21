@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TeacherSideBar from "./TeacherSideBar";
 import axios from 'axios'
+import { Link } from "react-router-dom";
 
 const baseUrl = "http://127.0.0.1:8000/api"
 
@@ -12,7 +13,7 @@ function MyCourse() {
 
     useState(() => {
         try {
-            axios.get(baseUrl + '/teacher-courses/'+teacherId)
+            axios.get(baseUrl + '/teacher-courses/' + teacherId)
                 .then((res) => {
                     setCourseData(res.data);
                     // console.log(res.data);
@@ -38,19 +39,30 @@ function MyCourse() {
                                         <th scope="col">Title</th>
                                         <th scope="col">Description</th>
                                         <th scope="col">Img</th>
-                                        <th scope="col">Tech Brief</th>
+                                        <th scope="col">Action</th>
+
+
+
+
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                {courseData.map((course, index) =>
-                                    <tr>
-                                        <th scope="row">{course.id}</th>                                
-                                                <td>{course.title}</td>
-                                                <td>{course.description}</td>
-                                                <td>{course.featured_img}</td>
-                                                <td>{course.tech_brief}</td>                                
-                                    </tr>
+                                    {courseData.map((course, index) =>
+                                        <tr>
+                                            <th scope="row">{course.id}</th>
+                                            <td>{course.title}</td>
+                                            <td>{course.description}</td>
+                                            <td><img src={course.featured_img} alt={course.title} width="80" className="rounded" /></td>
+
+                                            <td>
+                                                <Link><button type="button" className="btn btn-danger">Delete</button></Link>
+                                                &nbsp;
+                                                <Link to={"/add-chapter/"+ course.id}><button type="button" className="btn btn-primary" >Add Chapter</button></Link>
+                                            </td>
+
+
+                                        </tr>
                                     )}
                                 </tbody>
                             </table>

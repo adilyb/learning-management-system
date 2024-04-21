@@ -32,6 +32,7 @@ import TeacherProfileSetting from './Teacher/Dashboard/TeacherProfileSetting.js'
 import TeacherChangePassword from './Teacher/Dashboard/TeacherChangePassword.js'
 import TeacherDetail from './Teacher/TeacherDetail.js'
 import AddCourse from './Teacher/Dashboard/AddCourse.js';
+import AddChapter from './Teacher/Dashboard/AddChapter.js';
 
 function Main() {
   return (
@@ -69,6 +70,8 @@ function Main() {
         <Route path="/teacher/change-password" element={<TeacherChangePassword />} />
         <Route path="/teacher-detail/:teacher_id" element={<TeacherDetail />} />
         <Route path="/add-course" element={<AddCourse />} />
+        <Route path="/add-chapter/:chapter_id/" element={<AddChapter />} />
+
 
       </Switch>
       <Footer />
