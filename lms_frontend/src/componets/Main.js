@@ -70,7 +70,7 @@ function Main() {
         <Route path="/teacher/change-password" element={<TeacherChangePassword />} />
         <Route path="/teacher-detail/:teacher_id" element={<TeacherDetail />} />
         <Route path="/add-course" element={<AddCourse />} />
-        <Route path="/add-chapter/:chapter_id/" element={<AddChapter />} />
+        <Route path="/add-chapter/:course_id/" element={<AddChapter />} />
 
 
       </Switch>
