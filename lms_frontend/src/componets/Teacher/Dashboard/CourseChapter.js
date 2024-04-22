@@ -4,10 +4,10 @@ import axios from 'axios'
 import { Link, useParams } from "react-router-dom";
 
 const baseUrl = "http://127.0.0.1:8000/api"
-
+const Swal = require('sweetalert2')
 function CourseChapter() {
     const [chapterData, setchapterData] = useState([]);
-    const{course_id} = useParams();
+    const { course_id } = useParams();
     const [totalResult, setTotalResult] = useState(0);
 
 
@@ -25,6 +25,16 @@ function CourseChapter() {
         }
     }, [])
 
+    const handleDeleteClick = () =>{
+        Swal.fire({
+            title: 'Confirm',
+            text: 'Do you want to Delete this Data',
+            icon: 'info',
+            confirmButtonText: 'Continue',
+            showCancelButton: true
+          })
+    }
+
     return (
         <div className="container mt-4">
             <div className="row">
@@ -38,17 +48,19 @@ function CourseChapter() {
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">ID</th>
+                                        {/* <th scope="col">ID</th> */}
                                         <th scope="col">Title</th>
                                         <th scope="col">Description</th>
                                         <th scope="col">Video</th>
+                                        <th scope="col">Remarks</th>
                                         <th scope="col">Action</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {chapterData.map((chapter, index) =>
                                         <tr>
-                                            <th scope="row">{chapter.id}</th>
+                                            {/* <th scope="row">{chapter.id}</th> */}
                                             <td>{chapter.title}</td>
                                             <td>{chapter.description}</td>
                                             <td>
@@ -56,15 +68,16 @@ function CourseChapter() {
                                                     <source src="{chapter.video.url}" type="video/webm" />
                                                     <source src="{chapter.video.url}" type="video/mp4" />
                                                     Sorry, your browser Doesn't Support embedded videos.
-                                                </video></td>
+                                                </video>
+                                            </td>
+                                            <td>{chapter.remarks}</td>
+
 
                                             <td>
-                                                <Link to={"/delete-chapter/"+ chapter.id} className="btn btn-sm text-white btn-danger"><i class="bi bi-trash-fill"></i></Link>
+                                                <Link onClick={handleDeleteClick} to={"/delete-chapter/" + chapter.id} className="btn btn-sm text-white btn-danger"><i class="bi bi-trash-fill"></i></Link>
                                                 &nbsp;
-                                                <Link to={"/edit-chapter/"+ chapter.id} className="btn btn-sm text-white btn-info" ><i class="bi bi-pencil-square"></i></Link>
+                                                <Link  to={"/edit-chapter/" + chapter.id} className="btn btn-sm text-white btn-info" ><i class="bi bi-pencil-square"></i></Link>
                                             </td>
-
-
                                         </tr>
                                     )}
                                 </tbody>
