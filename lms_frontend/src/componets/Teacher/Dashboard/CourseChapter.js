@@ -51,7 +51,12 @@ function CourseChapter() {
                                             <th scope="row">{chapter.id}</th>
                                             <td>{chapter.title}</td>
                                             <td>{chapter.description}</td>
-                                            <td><img src={chapter.video} alt={chapter.title} width="80" className="rounded" /></td>
+                                            <td>
+                                                <video controls width={250}>
+                                                    <source src="{chapter.video.url}" type="video/webm" />
+                                                    <source src="{chapter.video.url}" type="video/mp4" />
+                                                    Sorry, your browser Doesn't Support embedded videos.
+                                                </video></td>
 
                                             <td>
                                                 <Link to={"/delete-chapter/"+ chapter.id} className="btn btn-sm text-white btn-danger"><i class="bi bi-trash-fill"></i></Link>
