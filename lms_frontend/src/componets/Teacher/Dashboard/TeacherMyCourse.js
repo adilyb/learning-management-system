@@ -38,7 +38,7 @@ function MyCourse() {
                                         <th scope="col">ID</th>
                                         <th scope="col">Title</th>
                                         <th scope="col">Description</th>
-                                        <th scope="col">Img</th>
+                                        {/* <th scope="col">Img</th> */}
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -48,12 +48,12 @@ function MyCourse() {
                                             <th scope="row">{course.id}</th>
                                             <td><Link to={'/all-chapter/'+course.id}>{course.title}</Link></td>
                                             <td>{course.description}</td>
-                                            <td><img src={course.featured_img} alt={course.title} width="80" className="rounded" /></td>
+                                            {/* <td><img src={course.featured_img} alt={course.title} width="80" className="rounded" /></td> */}
 
                                             <td>
-                                                <Link><button type="button" className="btn btn-danger">Delete</button></Link>
+                                                <Link className="btn btn-sm text-white btn-danger"><i class="bi bi-trash-fill"></i></Link>
                                                 &nbsp;
-                                                <Link to={"/add-chapter/"+ course.id}><button type="button" className="btn btn-primary" >Add Chapter</button></Link>
+                                                <Link to={"/add-chapter/"+ course.id} className="btn btn-sm text-white btn-info" ><i class="bi bi-pencil-square"></i></Link>
                                             </td>
 
 

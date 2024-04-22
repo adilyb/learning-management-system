@@ -8,6 +8,7 @@ const baseUrl = "http://127.0.0.1:8000/api"
 function CourseChapter() {
     const [chapterData, setchapterData] = useState([]);
     const{course_id} = useParams();
+    const [totalResult, setTotalResult] = useState(0);
 
 
 
@@ -16,6 +17,7 @@ function CourseChapter() {
             axios.get(baseUrl + '/all-chapter/' + course_id)
                 .then((res) => {
                     setchapterData(res.data);
+                    setTotalResult(res.data.length);
                     // console.log(res.data);
                 })
         } catch (error) {
@@ -31,7 +33,7 @@ function CourseChapter() {
                 </aside>
                 <section className="col-md-9">
                     <div className="card">
-                        <h4 className="card-header">ALL CHAPTERS</h4>
+                        <h4 className="card-header">ALL CHAPTERS ({totalResult})</h4>
                         <div className="card-body">
                             <table class="table">
                                 <thead>
@@ -52,9 +54,9 @@ function CourseChapter() {
                                             <td><img src={chapter.video} alt={chapter.title} width="80" className="rounded" /></td>
 
                                             <td>
-                                                <Link><button type="button" className="btn btn-danger">Delete</button></Link>
+                                                <Link to={"/delete-chapter/"+ chapter.id} className="btn btn-sm text-white btn-danger"><i class="bi bi-trash-fill"></i></Link>
                                                 &nbsp;
-                                                <Link to={"/add-chapter/"+ chapter.id}><button type="button" className="btn btn-primary" >Add Chapter</button></Link>
+                                                <Link to={"/edit-chapter/"+ chapter.id} className="btn btn-sm text-white btn-info" ><i class="bi bi-pencil-square"></i></Link>
                                             </td>
 
 
