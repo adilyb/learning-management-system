@@ -8,7 +8,7 @@ const baseUrl = 'http://127.0.0.1:8000/api'
 
 function EditChapter() {
     
-    const [course_id] = useParams();
+   
     const [chapterData, setChapterData] = useState({
         'title': '',
         'description': '',
@@ -16,16 +16,7 @@ function EditChapter() {
         'remarks': '',
     })
 
-    useEffect(() => {
-        try {
-            axios.get(baseUrl + '/all-chapter' + course_id)
-                .then((res) => {
-                    setChapterData(res.data)
-                })
-        } catch (error) {
-            console.log(error);
-        }
-    }, []);
+   
 
 
     const handlechange = (event) => {
@@ -43,29 +34,41 @@ function EditChapter() {
         })
     }
 
-    // const formSubmit = () => {
-    //     const _formData = new FormData();
-    //     _formData.append('title', res.data.title);
-    //     _formData.append('description', res.data.description);
-    //     _formData.append('prev_video', res.data.f_img, courseData.f_img.name);
-    //     _formData.append('tech_brief', res.data.tech_brief);
+    const formSubmit = () => {
+        const _formData = new FormData();
+        _formData.append('title', chapterData.title);
+        _formData.append('description', chapterData.description);
+        _formData.append('prev_video', chapterData.f_img, chapterData.f_img.name);
+        _formData.append('tech_brief', chapterData.tech_brief);
 
 
-    //     try {
-    //         axios.put(baseUrl + '/all-chapter' + course_id, {
-    //             headers: {
-    //                 'content-type': 'multipart/form-data'
-    //             }
-    //         })
-    //             .then((res) => {
-    //                 console.log(res.data);
-    //             });
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
+        try {
+            axios.put(baseUrl + '/all-chapter' + chapter_id, {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            })
+                .then((res) => {
+                    console.log(res.data);
+                });
+        } catch (error) {
+            console.log(error);
+        }
 
 
-    // }
+    };
+    const {chapter_id} = useParams();
+
+    useEffect(() => {
+        try {
+            axios.get(baseUrl + '/chapter/'+ chapter_id)
+                .then((res) => {
+                    setChapterData(res.data);
+                })
+        } catch (error) {
+            console.log(error);
+        }
+    }, []);
 
 
 
@@ -105,7 +108,7 @@ function EditChapter() {
 
                                 </div>
 
-                                <button type="submit"  className="btn btn-primary">Upload</button>
+                                <button type="submit" onClick={formSubmit} className="btn btn-primary">Upload</button>
                             </form>
                         </div>
 

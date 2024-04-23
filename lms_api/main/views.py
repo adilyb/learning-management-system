@@ -63,3 +63,8 @@ class CourseChapterList(generics.ListAPIView):
         course_id = self.kwargs['course_id']
         course = Course.objects.get(pk=course_id)
         return Chapter.objects.filter(course=course)
+    
+    
+class ChapterDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Chapter.objects.all()
+    serializer_class = ChapterSerializers

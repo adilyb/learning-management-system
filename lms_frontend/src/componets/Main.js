@@ -75,7 +75,7 @@ function Main() {
         <Route path="/add-course" element={<AddCourse />} />
         <Route path="/add-chapter/:course_id/" element={<AddChapter />} />
         <Route path="/all-chapter/:course_id/" element={<CourseChapter />} />
-        <Route path="/edit-chapter/:course_id/" element={<EditChapter />} />
+        <Route path="/edit-chapter/:chapter_id/" element={<EditChapter />} />
 
 
 
