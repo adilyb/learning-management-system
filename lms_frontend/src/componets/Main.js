@@ -34,6 +34,8 @@ import TeacherDetail from './Teacher/TeacherDetail.js'
 import AddCourse from './Teacher/Dashboard/AddCourse.js';
 import AddChapter from './Teacher/Dashboard/AddChapter.js';
 import CourseChapter from './Teacher/Dashboard/CourseChapter.js';
+import EditChapter from './Teacher/Dashboard/EditChapter.js';
+
 
 function Main() {
   return (
@@ -73,6 +75,8 @@ function Main() {
         <Route path="/add-course" element={<AddCourse />} />
         <Route path="/add-chapter/:course_id/" element={<AddChapter />} />
         <Route path="/all-chapter/:course_id/" element={<CourseChapter />} />
+        <Route path="/edit-chapter/:course_id/" element={<EditChapter />} />
+
 
 
 
