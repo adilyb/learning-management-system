@@ -43,7 +43,8 @@ function AddCourse(){
         })
     }
 
-    const formSubmit = () =>{
+    const formSubmit = (e) =>{
+        // e.preventDefault();
         const _formData = new FormData();
         _formData.append('category', courseData.category);
         _formData.append('teacher', 1);

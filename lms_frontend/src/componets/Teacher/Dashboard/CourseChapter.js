@@ -25,14 +25,14 @@ function CourseChapter() {
         }
     }, [])
 
-    const handleDeleteClick = () =>{
+    const handleDeleteClick = () => {
         Swal.fire({
             title: 'Confirm',
             text: 'Do you want to Delete this Data',
             icon: 'info',
             confirmButtonText: 'Continue',
             showCancelButton: true
-          })
+        })
     }
 
     return (
@@ -64,27 +64,32 @@ function CourseChapter() {
                                             <td>{chapter.title}</td>
                                             <td>{chapter.description}</td>
                                             <td>
-                                                <video controls width={250}>
-                                                    <source src="{chapter.video.url}" type="video/webm" />
-                                                    <source src="{chapter.video.url}" type="video/mp4" />
+                                                <video controls width="320" height="240" className="mt-2">
+                                                    <source src="movie.mp4" type="video/mp4" />
+                                                        <source src="movie.ogg" type="video/ogg" />
+                                                            Your browser does not support the video tag.
+                                                        </video>
+                                                        {/* <video>
+                                                    <source src= type="video/webm" />
+                                                    <source src={chapter.video.url} type="video/mp4" />
                                                     Sorry, your browser Doesn't Support embedded videos.
-                                                </video>
-                                            </td>
-                                            <td>{chapter.remarks}</td>
+                                                </video> */}
+                                                    </td>
+                                                    <td>{chapter.remarks}</td>
 
 
-                                            <td>
-                                                <Link onClick={handleDeleteClick} to={"/delete-chapter/" + chapter.id} className="btn btn-sm text-white btn-danger"><i class="bi bi-trash-fill"></i></Link>
-                                                &nbsp;
-                                                <Link  to={"/edit-chapter/" + chapter.id} className="btn btn-sm text-white btn-info" ><i class="bi bi-pencil-square"></i></Link>
-                                            </td>
-                                        </tr>
+                                                    <td>
+                                                        <Link onClick={handleDeleteClick} to={"/delete-chapter/" + chapter.id} className="btn btn-sm text-white btn-danger"><i class="bi bi-trash-fill"></i></Link>
+                                                        &nbsp;
+                                                        <Link to={"/edit-chapter/" + chapter.id} className="btn btn-sm text-white btn-info" ><i class="bi bi-pencil-square"></i></Link>
+                                                    </td>
+                                                </tr>
                                     )}
-                                </tbody>
-                            </table>
+                                            </tbody>
+                                        </table>
                         </div>
 
-                    </div>
+                        </div>
                 </section>
             </div>
 
