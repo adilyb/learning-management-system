@@ -3,14 +3,13 @@ import TeacherSideBar from "./TeacherSideBar";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-
 const baseUrl = 'http://127.0.0.1:8000/api'
 
 function EditChapter() {
 
 
-    const {chapter_id} = useParams();
-  
+    const { chapter_id } = useParams();
+
     const [chapterData, setChapterData] = useState({
         'course': '',
         'title': '',
@@ -19,7 +18,7 @@ function EditChapter() {
         'remarks': '',
     })
 
-   
+
 
 
     const handlechange = (event) => {
@@ -61,21 +60,14 @@ function EditChapter() {
 
 
     };
-    
+
 
     useEffect(() => {
         try {
-            axios.get(baseUrl + '/chapter/'+ chapter_id)
+            axios.get(baseUrl + '/chapter/' + chapter_id)
                 .then((res) => {
-                    setChapterData({
-                        course:res.data.course,
-                        title:res.data.title,
-                        description:res.data.description,
-                        video:res.data.video,
-                        remarks:res.data.remarks,                            
-                    }
-                );
-                  
+                    setChapterData(res.data);
+                    console.log(res.data)
                 })
         } catch (error) {
             console.log(error);
@@ -106,12 +98,14 @@ function EditChapter() {
                                 </div>
                                 <div className="mb-3">
                                     <label for="video" className="form-label">Video</label>
+                                    
                                     <input name="video" type="file" onChange={handlefilechange} className="form-control" id="video" />
-                                    <video controls width={250}>
+                                    <video controls width={250} height={150}>
                                         <source src={chapterData.video} type="video/webm" />
                                         <source src={chapterData.video} type="video/mp4" />
                                         Sorry, your browser Doesn't Support embedded videos.
                                     </video>
+                                    
                                 </div>
 
                                 <div className="mb-3">
