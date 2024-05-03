@@ -14,6 +14,7 @@ function EditChapter() {
         'course': '',
         'title': '',
         'description': '',
+        'prev_video':'',
         'video': '',
         'remarks': '',
     })
@@ -41,12 +42,14 @@ function EditChapter() {
         _formData.append('course', chapterData.course);
         _formData.append('title', chapterData.title);
         _formData.append('description', chapterData.description);
-        _formData.append('video', chapterData.video, chapterData.video.name);
+        if(chapterData.video ==!''){
+            _formData.append('video', chapterData.video, chapterData.video.name);
+        }
         _formData.append('remarks', chapterData.remarks);
 
 
         try {
-            axios.put(baseUrl + '/all-chapter' + chapter_id, {
+            axios.put(baseUrl + '/chapter/'+ chapter_id, _formData,{
                 headers: {
                     'content-type': 'multipart/form-data'
                 }
@@ -66,8 +69,17 @@ function EditChapter() {
         try {
             axios.get(baseUrl + '/chapter/' + chapter_id)
                 .then((res) => {
-                    setChapterData(res.data);
-                    console.log(res.data)
+                    setChapterData({
+                        course:res.data.course,
+                        title:res.data.title,
+                        description:res.data.description,
+                        prev_video:res.data.video,
+                        remarks:res.data.remarks,
+                        video:'',
+
+
+                    });
+                    // console.log(res.data)
                 })
         } catch (error) {
             console.log(error);
@@ -101,8 +113,8 @@ function EditChapter() {
                                     
                                     <input name="video" type="file" onChange={handlefilechange} className="form-control" id="video" />
                                     <video controls width={250} height={150}>
-                                        <source src={chapterData.video} type="video/webm" />
-                                        <source src={chapterData.video} type="video/mp4" />
+                                        <source src={chapterData.prev_video} type="video/webm" />
+                                        <source src={chapterData.prev_video} type="video/mp4" />
                                         Sorry, your browser Doesn't Support embedded videos.
                                     </video>
                                     
