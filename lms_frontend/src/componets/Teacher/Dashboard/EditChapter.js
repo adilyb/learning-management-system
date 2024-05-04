@@ -42,7 +42,7 @@ function EditChapter() {
         _formData.append('course', chapterData.course);
         _formData.append('title', chapterData.title);
         _formData.append('description', chapterData.description);
-        if(chapterData.video ==!''){
+        if(chapterData.video ===!''){
             _formData.append('video', chapterData.video, chapterData.video.name);
         }
         _formData.append('remarks', chapterData.remarks);
@@ -112,11 +112,13 @@ function EditChapter() {
                                     <label for="video" className="form-label">Video</label>
                                     
                                     <input name="video" type="file" onChange={handlefilechange} className="form-control" id="video" />
+                                    {chapterData.prev_video &&
                                     <video controls width={250} height={150}>
                                         <source src={chapterData.prev_video} type="video/webm" />
                                         <source src={chapterData.prev_video} type="video/mp4" />
                                         Sorry, your browser Doesn't Support embedded videos.
                                     </video>
+                                    }
                                     
                                 </div>
 
