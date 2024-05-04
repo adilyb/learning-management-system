@@ -2,6 +2,7 @@ import axios from "axios";
 import TeacherSideBar from "./TeacherSideBar";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+const Swal = require('sweetalert2')
 
 const baseUrl = 'http://127.0.0.1:8000/api'
 
@@ -54,9 +55,19 @@ function EditChapter() {
                     'content-type': 'multipart/form-data'
                 }
             })
-                .then((res) => {
-                    console.log(res.data);
-                });
+            .then((res) => {  
+                if(res.status===200){
+                    Swal.fire({
+                        title: 'Data has been updated',
+                        icon: 'success',
+                        toast: true,
+                        timer: 3000,
+                        position: 'top-right',
+                        timerProgressBar:true,
+                        showConfirmButton: false
+                    });
+                }
+            });
         } catch (error) {
             console.log(error);
         }

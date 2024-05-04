@@ -2,9 +2,9 @@ import { useState } from "react";
 import TeacherSideBar from "./TeacherSideBar";
 import axios from 'axios'
 import { Link, useParams } from "react-router-dom";
-
-const baseUrl = "http://127.0.0.1:8000/api"
 const Swal = require('sweetalert2')
+const baseUrl = "http://127.0.0.1:8000/api"
+
 function CourseChapter() {
     const [chapterData, setchapterData] = useState([]);
     const { course_id } = useParams();
